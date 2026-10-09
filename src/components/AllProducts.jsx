@@ -57,7 +57,7 @@ const AllProducts = () => {
         return (
             <section id="all-products" className="container mx-auto px-4 py-8">
                 <h2 className="mb-6 text-xl font-bold text-gray-900 sm:text-2xl">
-                    {/* সব পণ্য */}
+                    সব পণ্য
                 </h2>
 
                 <div className="mb-5 h-5 w-56 animate-pulse rounded bg-gray-200" />
