@@ -1,6 +1,6 @@
-
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const PriceRisers = () => {
@@ -12,7 +12,7 @@ const PriceRisers = () => {
         const fetchProducts = async () => {
             try {
                 const res = await fetch(
-                    "https://api.abcz.workers.dev/api/bazardor/products"
+                    "https://api.abcz.workers.dev/api/bazardor/products",
                 );
 
                 if (!res.ok) {
@@ -26,7 +26,7 @@ const PriceRisers = () => {
                     .sort(
                         (a, b) =>
                             Number(b.change?.pct || 0) -
-                            Number(a.change?.pct || 0)
+                            Number(a.change?.pct || 0),
                     )
                     .slice(0, 6);
 
@@ -103,7 +103,8 @@ const PriceRisers = () => {
                 ) : (
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                         {products.map((product) => (
-                            <div
+                            <Link
+                                href={`/product/${product.slug}`}
                                 key={product.id}
                                 className="flex min-h-36.25 flex-col justify-between rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
                             >
@@ -140,15 +141,16 @@ const PriceRisers = () => {
                                             {toBanglaNumber(
                                                 Math.abs(
                                                     Number(
-                                                        product.change?.pct || 0
-                                                    )
-                                                )
+                                                        product.change?.pct ||
+                                                            0,
+                                                    ),
+                                                ),
                                             )}
                                             %
                                         </span>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 )}

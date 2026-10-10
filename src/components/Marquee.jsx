@@ -22,7 +22,7 @@ const Marquee = async () => {
     const data = await res.json();
 
     return (
-        <div className="container mx-auto px-4">
+        <div className="px-4">
             <MarqueeText direction="right" duration="15">
                 {data.map((x) => (
                     <Link
